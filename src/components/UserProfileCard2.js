@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "./Avatar2";
+import Avatar2 from "./Avatar2";
 
 function UserProfileCard2(){
     return (
