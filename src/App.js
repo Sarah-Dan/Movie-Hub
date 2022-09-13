@@ -1,12 +1,7 @@
 import React from "react"
 // import Avatar from "./images/myapp-sarah.jpeg"
 
-// greetings component
-function Greetings(){
-  return (
-    <p>Hello there! Welcome to Tech Newbie!</p>
-  )
-}
+
 
 // avatar component
 function Avatar(){
