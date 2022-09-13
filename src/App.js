@@ -1,15 +1,4 @@
-import React from "react"
-// import Avatar from "./images/myapp-sarah.jpeg"
-
-
-
-
-
-
-
-
-
-
+import React from "react";
 
 // root component
 function App(){
