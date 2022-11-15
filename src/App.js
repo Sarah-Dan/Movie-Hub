@@ -1,17 +1,60 @@
-import React from "react";
-import Greetings from "./components/Greetings";
-import UserProfileCard from "./components/UserProfileCard";
-import UserProfileCard2 from "./components/UserProfileCard2"; 
+import { useEffect, useState } from "react";
+import SearchIcon from "./search.svg";
+import MovieCard from "./components/MovieCard";
 
-// root component
-function App(){
+// import { HomePage } from "./pages";
+
+// Api key = aa702c3d
+
+const API_URL = "http://www.omdbapi.com?apikey=aa702c3d";
+
+// ROOT COMPONENT
+const App = () => {
+   const [movies, setMovies] = useState([]);
+   const [searchValue, setSearchValue] = useState("");
+ 
+
+  const searchMovies = async (title) => {
+    const response = await fetch(`${API_URL}&s=${title}`);
+    const data = await response.json();
+    setMovies(data.Search);
+  };
+
+  useEffect(() => {
+    searchMovies("avengers");
+  }, []);
+
   return (
-    <section className="main-page">
-      <Greetings/>
-      <UserProfileCard/>
-      <UserProfileCard2/>
-    </section>
+    <div className="app">
+      <h1>MovieHub</h1>
+      <div className="search__box">
+        <input
+          type="text"
+          placeholder="Search for a movie..."
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+        <img
+          className="search__img"
+          src={SearchIcon}
+          alt="search__icon"
+          onClick={() => searchMovies(searchValue)}
+        />
+      </div>
+
+      {movies?.length > 0 ? (
+        <div className="container">
+          {movies.map((movie) => (
+            <MovieCard movie={movie} />
+          ))}
+        </div>
+      ) : (
+        <div className="no__movies">
+          <h2>No movies found</h2>
+        </div>
+      )}
+    </div>
   );
-}
+};
 
 export default App;
