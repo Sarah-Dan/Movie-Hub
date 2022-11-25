@@ -27,6 +27,7 @@ const App = () => {
   return (
     <div className="app">
       <h1>MovieHub</h1>
+      <p className="description">The hub of great movies for movie buffs!</p>
       <div className="search__box">
         <input
           type="text"
