@@ -30,7 +30,7 @@ const App = () => {
       <div className="search__box">
         <input
           type="text"
-          placeholder="Search for a movie..."
+          placeholder="Search for your favorite movie..."
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
